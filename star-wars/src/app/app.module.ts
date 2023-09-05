@@ -16,10 +16,13 @@ import { HttpClientModule } from '@angular/common/http'
 import { PeopleListComponent } from './components/people/people-list/people-list.component'
 import { PeopleDetailsComponent } from './components/people/people-details/people-details.component'
 import { PlanetsListComponent } from './components/planets/planets-list/planets-list.component'
+import { HeaderService } from './services/header.service'
+import { HeaderComponent } from './components/header/header.component'
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
     PeopleListComponent,
     PlanetsListComponent
   ],
@@ -30,10 +33,7 @@ import { PlanetsListComponent } from './components/planets/planets-list/planets-
     EffectsModule.forRoot([PeopleEffects, PlanetsEffects]),
     HttpClientModule
   ],
-  providers: [
-    PeopleApiService,
-    PlanetsApiService,
-  ],
+  providers: [PeopleApiService, PlanetsApiService, HeaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

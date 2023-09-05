@@ -16,8 +16,8 @@ export class PeopleEffects {
     loadPeople$ = createEffect(() =>
         this.actions$.pipe(
             ofType(PeopleActions.loadPeople),
-            mergeMap(() =>
-                this.peopleApiService.getPeople().pipe(
+            mergeMap((action) =>
+                this.peopleApiService.getPeople(action.page).pipe(
                     map((people) => PeopleActions.loadPeopleSuccess({ people })),
                     catchError((error) => of(PeopleActions.loadPeopleFailure({ error })))
                 )

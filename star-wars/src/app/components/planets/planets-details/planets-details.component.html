@@ -1,3 +1,13 @@
-<p>
-  planets-details works!
-</p>
+<div *ngIf="isLoading; else loadedContent">
+  <p>Loading...</p>
+</div>
+
+<ng-template #loadedContent>
+  <div *ngIf="currentPlanet">
+    <h1>{{ currentPlanet!.name }}</h1>
+  </div>
+
+  <div *ngIf="!currentPlanet">
+    <p>Planet not found</p>
+  </div>
+</ng-template>

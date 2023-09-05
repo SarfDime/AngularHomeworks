@@ -1,3 +1,13 @@
-<p>
-  people-details works!
-</p>
+<div *ngIf="isLoading; else loadedContent">
+  <p>Loading...</p>
+</div>
+
+<ng-template #loadedContent>
+  <div *ngIf="currentPerson">
+    <h1>{{ currentPerson!.name }}</h1>
+  </div>
+
+  <div *ngIf="!currentPerson">
+    <p>Person not found</p>
+  </div>
+</ng-template>

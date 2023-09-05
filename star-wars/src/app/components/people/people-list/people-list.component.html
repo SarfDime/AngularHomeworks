@@ -1,3 +1,22 @@
-<p>
-  people-list works!
-</p>
+<div *ngIf="isLoading; else loadedContent">
+  <!-- Show a loading message while loading -->
+  <p>Loading...</p>
+</div>
+
+<ng-template #loadedContent>
+  <div *ngIf="currentPeople && currentPeople.length > 0">
+    <!-- Iterate through currentPeople and display their details -->
+    <ul>
+      <li *ngFor="let person of currentPeople">
+        <h1>{{ person.name }}</h1>
+        <!-- Add other details as needed -->
+      </li>
+    </ul>
+  </div>
+  
+  <div *ngIf="currentPeople && currentPeople.length === 0">
+    <!-- Handle the case when there are no people available -->
+    <p>No people found</p>
+  </div>
+</ng-template>
+

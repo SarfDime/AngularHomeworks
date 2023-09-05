@@ -1,0 +1,9 @@
+nav{
+    ul{
+        li{
+            &.active{
+                background-color: red;
+            }
+        }
+    }
+}
