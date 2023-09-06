@@ -8,9 +8,12 @@ import { Planets } from '../modules/planets/planets.interfaces.ts'
 })
 
 export class PlanetsApiService {
-    private readonly baseUrl = 'https://swapi.dev/api/planets'
+    private readonly baseUrl = 'https://swapi.dev/api/planets/?page='
+    private readonly searchUrl = 'https://swapi.dev/api/planets/?search='
 
     constructor(private readonly http: HttpClient) { }
 
-    getPlanets = (): Observable<Planets> => this.http.get<Planets>(`${this.baseUrl}/`)
+    getPlanets = (page: number): Observable<Planets> => this.http.get<Planets>(`${this.baseUrl}${page || '1'}`)
+
+    getPlanet = (name: string): Observable<Planets> => this.http.get<Planets>(`${this.searchUrl}${name}`)
 }

@@ -18,20 +18,29 @@ import { PeopleDetailsComponent } from './components/people/people-details/peopl
 import { PlanetsListComponent } from './components/planets/planets-list/planets-list.component'
 import { HeaderService } from './services/header.service'
 import { HeaderComponent } from './components/header/header.component'
+import { PersonEffects } from './store/person/person.effects'
+import { PlanetsDetailsComponent } from './components/planets/planets-details/planets-details.component'
+import { PlanetEffects } from './store/planet/planet.effects'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { HomeComponent } from './components/home/home.component'
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     HeaderComponent,
     PeopleListComponent,
-    PlanetsListComponent
+    PlanetsListComponent,
+    PeopleDetailsComponent,
+    PlanetsDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot(appReducer),
-    EffectsModule.forRoot([PeopleEffects, PlanetsEffects]),
-    HttpClientModule
+    EffectsModule.forRoot([PeopleEffects, PlanetsEffects, PersonEffects, PlanetEffects]),
+    HttpClientModule,
+    FormsModule
   ],
   providers: [PeopleApiService, PlanetsApiService, HeaderService],
   bootstrap: [AppComponent]

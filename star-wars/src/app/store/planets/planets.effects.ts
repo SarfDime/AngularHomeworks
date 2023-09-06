@@ -16,8 +16,8 @@ export class PlanetsEffects {
     loadPlanets$ = createEffect(() =>
         this.actions$.pipe(
             ofType(PlanetsActions.loadPlanets),
-            mergeMap(() =>
-                this.planetsService.getPlanets().pipe(
+            mergeMap((action) =>
+                this.planetsService.getPlanets(action.page).pipe(
                     map((planets) => PlanetsActions.loadPlanetsSuccess({ planets })),
                     catchError((error) => of(PlanetsActions.loadPlanetsFailure({ error })))
                 )

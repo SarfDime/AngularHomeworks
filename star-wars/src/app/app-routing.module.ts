@@ -9,14 +9,22 @@ import { NotFoundComponent } from './components/not-found/not-found.component'
 import { HeaderGuard } from './guards/header.guard'
 
 const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [HeaderGuard] },
   { path: 'not-found', component: NotFoundComponent, canActivate: [HeaderGuard] },
+
   { path: 'people', component: PeopleListComponent, canActivate: [HeaderGuard] },
-  { path: 'people/:id', component: PeopleDetailsComponent, canActivate: [HeaderGuard] },
+  { path: 'person/:id', component: PeopleDetailsComponent, canActivate: [HeaderGuard] },
+  { path: 'person', redirectTo: '/people' },
+  { path: 'people/:id', component: PeopleListComponent, canActivate: [HeaderGuard] },
+
   { path: 'planets', component: PlanetsListComponent, canActivate: [HeaderGuard] },
-  { path: 'planets/:id', component: PlanetsDetailsComponent, canActivate: [HeaderGuard] },
+  { path: 'planet/:id', component: PlanetsDetailsComponent, canActivate: [HeaderGuard] },
+  { path: 'planet', redirectTo: '/planets' },
+  { path: 'planets/:id', component: PlanetsListComponent, canActivate: [HeaderGuard] },
+
   { path: '**', redirectTo: '/not-found' },
-];
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

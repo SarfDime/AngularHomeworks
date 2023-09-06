@@ -1,18 +1,23 @@
 <div *ngIf="isLoading; else loadedContent">
-  <p>Loading...</p>
+    <p>Loading...</p>
 </div>
 
 <ng-template #loadedContent>
-  <div *ngIf="currentPlanets && currentPlanets.length > 0">
-    <ul>
-      <li *ngFor="let planet of currentPlanets">
-        <h1>{{ planet.name }}</h1>
-      </li>
-    </ul>
-  </div>
-  
-  <div *ngIf="currentPlanets && currentPlanets.length === 0">
-    <p>No planets found</p>
-  </div>
-</ng-template>
+    <div *ngIf="currentPlanets && currentPlanets.length > 0">
+        <ul>
+            <li *ngFor="let planet of currentPlanets">
+                <h1>{{ planet.name }}</h1>
+                <button (click)="onPlanetClick(planet.name)">Details</button>
+            </li>
+        </ul>
 
+        <button (click)="onPreviousPage()" [disabled]="!previousPage"
+            [ngClass]="{ 'buttonDisabled': !previousPage }">Previous</button>
+        <button (click)="onNextPage()" [disabled]="!nextPage" [ngClass]="{ 'buttonDisabled': !nextPage }">Next</button>
+
+    </div>
+
+    <div *ngIf="currentPlanets && currentPlanets.length === 0">
+        <p>No planets found</p>
+    </div>
+</ng-template>

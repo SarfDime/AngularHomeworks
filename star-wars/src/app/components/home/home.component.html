@@ -1,3 +1,15 @@
-<p>
-  home works!
-</p>
+<div>
+  <h2>Search for a Person</h2>
+  <form #personForm="ngForm" (ngSubmit)="onSubmitPersonForm(personForm)">
+    <input type="text" name="inputValue" ngModel required placeholder="Enter a person's name">
+    <button type="submit">Search</button>
+  </form>
+</div>
+
+<div>
+  <h2>Search for a Planet</h2>
+  <form #planetForm="ngForm" (ngSubmit)="onSubmitPlanetForm(planetForm)">
+    <input type="text" name="inputValue" ngModel required placeholder="Enter a planet's name">
+    <button type="submit">Search</button>
+  </form>
+</div>
