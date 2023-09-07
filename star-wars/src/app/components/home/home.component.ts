@@ -7,14 +7,12 @@ import { loadPeople } from 'src/app/store/people/people.actions'
 import { selectPeopleData, selectPeopleLoading } from 'src/app/store/people/people.selectors'
 import { loadPlanets } from 'src/app/store/planets/planets.actions'
 import { selectPlanetsLoading, selectPlanetsData } from 'src/app/store/planets/planets.selectors'
-
 import { Router } from '@angular/router'
 import { NgForm } from '@angular/forms'
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   isLoadingPeople: boolean = true
@@ -23,22 +21,25 @@ export class HomeComponent implements OnInit {
   isLoadingPlanets: boolean = true
   currentPlanets: Planets | undefined
 
-  constructor(private store: Store<AppState>, private router: Router) { }
+  searchType: string = ''
+  inputValue: string = ''
+
+  constructor(private store: Store<AppState>, private router: Router) {}
 
   ngOnInit() {
-    this.store.pipe(select(selectPlanetsData)).subscribe(e => {
+    this.store.pipe(select(selectPlanetsData)).subscribe((e) => {
       this.currentPlanets = e
     })
 
-    this.store.pipe(select(selectPeopleData)).subscribe(e => {
+    this.store.pipe(select(selectPeopleData)).subscribe((e) => {
       this.currentPeople = e
     })
 
-    this.store.pipe(select(selectPeopleLoading)).subscribe(e => {
+    this.store.pipe(select(selectPeopleLoading)).subscribe((e) => {
       this.isLoadingPeople = e
     })
 
-    this.store.pipe(select(selectPlanetsLoading)).subscribe(e => {
+    this.store.pipe(select(selectPlanetsLoading)).subscribe((e) => {
       this.isLoadingPlanets = e
     })
 
@@ -51,17 +52,17 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  onSubmitPersonForm(personForm: NgForm) {
-    const inputValue = personForm.value.inputValue
-    if (inputValue) {
-      this.router.navigate(['person', inputValue.toLowerCase()])
+  onSubmitSearchForm(searchForm: NgForm) {
+    if (this.inputValue && this.searchType) {
+      this.router.navigate([this.searchType, this.inputValue])
     }
   }
 
-  onSubmitPlanetForm(planetForm: NgForm) {
-    const inputValue = planetForm.value.inputValue
-    if (inputValue) {
-      this.router.navigate(['planet', inputValue.toLowerCase()])
-    }
+  onCharacterClick() {
+    this.router.navigate(['people'])
+  }
+
+  onPlanetClick() {
+    this.router.navigate(['planets'])
   }
 }

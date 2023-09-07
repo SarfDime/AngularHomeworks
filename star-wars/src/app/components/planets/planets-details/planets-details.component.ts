@@ -14,7 +14,6 @@ import { selectPlanetsData } from 'src/app/store/planets/planets.selectors'
 @Component({
   selector: 'app-planets-details',
   templateUrl: './planets-details.component.html',
-  styleUrls: ['./planets-details.component.scss'],
 })
 export class PlanetsDetailsComponent implements OnInit {
   isLoading: boolean = true
@@ -79,7 +78,6 @@ export class PlanetsDetailsComponent implements OnInit {
       }
     })
   }
-
 
   onPlanetClick(planetName: string) {
     this.router.navigate(['planet', planetName])

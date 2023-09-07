@@ -11,7 +11,6 @@ import { selectPersonData, selectPersonLoading } from 'src/app/store/person/pers
 @Component({
   selector: 'app-people-details',
   templateUrl: './people-details.component.html',
-  styleUrls: ['./people-details.component.scss']
 })
 
 export class PeopleDetailsComponent implements OnInit {
@@ -34,7 +33,7 @@ export class PeopleDetailsComponent implements OnInit {
 
         this.store.pipe(select(selectPeopleData)).subscribe(e => {
           const foundPerson = e.results.find((p: Person) =>
-            p.name.trim().toLowerCase().includes(personName!.trim().toLowerCase())
+            p.name.trim().toLowerCase() === personName!.trim().toLowerCase()
           )
 
           if (foundPerson) {

@@ -21,7 +21,7 @@ import { HeaderComponent } from './components/header/header.component'
 import { PersonEffects } from './store/person/person.effects'
 import { PlanetsDetailsComponent } from './components/planets/planets-details/planets-details.component'
 import { PlanetEffects } from './store/planet/planet.effects'
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms'
 import { HomeComponent } from './components/home/home.component'
 
 @NgModule({

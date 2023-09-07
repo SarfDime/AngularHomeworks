@@ -1,0 +1,293 @@
+.peopleMain,
+.planetsMain {
+    margin-block: 5rem;
+    margin-inline: auto;
+    padding: 2rem;
+
+    .loader {
+        text-align: center;
+
+        svg {
+            height: 3rem;
+            width: 3rem;
+        }
+    }
+
+    .listsContainer {
+        legend {
+            position: relative;
+            padding-inline: 2rem;
+            display: flex;
+            align-items: center;
+            margin-block: .5rem 1rem;
+            gap: .5rem;
+
+            svg {
+                order: 0;
+                height: 2.5rem;
+                width: 2.5rem;
+            }
+
+            h2 {
+                order: 1;
+            }
+
+            &::after {
+                order: 2;
+                content: '';
+                flex-grow: 1;
+                height: .15rem;
+                display: block;
+                margin-top: .3rem;
+            }
+
+            div {
+                display: flex;
+                justify-content: center;
+
+            }
+
+            .goToPage {
+                order: 3;
+
+                input {
+                    background-color: var(--tpPri2);
+                    border: .2rem solid var(--tpPri);
+                    padding: .3rem;
+                    max-width: 4rem;
+                    color: var(--secColor);
+                    font-size: 1.1rem;
+                    border-top-left-radius: .3rem;
+                    border-bottom-left-radius: .3rem;
+                }
+
+                button {
+                    background-color: var(--tpPri2);
+                    border: .2rem solid var(--tpPri);
+                    border-left: none;
+                    padding: .5rem;
+                    width: max-content;
+                    transition: background-color .3s ease;
+                    color: var(--secColor);
+                    font-size: 1rem;
+                    border-top-right-radius: .3rem;
+                    border-bottom-right-radius: .3rem;
+
+                    &:focus-visible {
+                        background-color: var(--paleAccent);
+                    }
+
+                    &:hover {
+                        background-color: var(--tpPri3);
+
+                        h2 {
+                            &::after {
+                                background-color: var(--accent);
+                            }
+                        }
+                    }
+
+                    &:active {
+                        background-color: var(--paleAccent);
+                    }
+
+                    &:disabled {
+                        pointer-events: none;
+                        opacity: 0.7;
+                    }
+                }
+            }
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+
+            li {
+                background-color: var(--tpPri2);
+                border: .2rem solid var(--tpPri);
+                border-radius: .3rem;
+                box-shadow: rgba(0, 0, 0, 0.24) 0 .2rem .5rem;
+
+                user-select: none;
+                cursor: pointer;
+                overflow: hidden;
+                position: relative;
+
+                img {
+                    background-color: var(--tpPri2);
+                    transition: filter .4s ease, scale .5s ease-in-out;
+                }
+
+                h2 {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    opacity: .8;
+                    width: 100%;
+                    text-align: center;
+                    padding-bottom: .3rem;
+                    transition: opacity .4s ease;
+                }
+
+                &:hover {
+                    img {
+                        filter: saturate(1.5) blur(.2rem);
+                        scale: 1.1;
+                    }
+
+                    h2 {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .switchPage {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: .5rem;
+            margin-top: 1rem;
+            padding-inline: 2rem;
+
+            .divider {
+                flex-grow: 1;
+                height: .15rem;
+                display: block;
+                margin-top: .3rem;
+            }
+
+            button {
+                position: relative;
+                background-color: var(--tpPri2);
+                border: .2rem solid var(--tpPri);
+                padding: .5rem .7rem;
+                border-radius: .3rem;
+                transition: background-color .3s ease;
+                color: var(--secColor);
+                font-size: 1rem;
+
+                &::after {
+                    order: 2;
+                    content: '';
+                    width: 100%;
+                    height: .15rem;
+                    display: block;
+                    margin-top: .3rem;
+                }
+
+                &:focus-visible {
+                    background-color: var(--paleAccent);
+                }
+
+                &:hover {
+                    background-color: var(--tpPri3);
+
+                    &::after {
+                        background-color: var(--paleAccent);
+                    }
+                }
+
+                &:active {
+                    &::after {
+                        background-color: var(--accent);
+                    }
+                }
+
+                &:disabled {
+                    pointer-events: none;
+                    opacity: 0.5;
+
+                    &::after {
+                        background-color: var(--paleAccent);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.peopleMain {
+    .listsContainer {
+        legend {
+            &::after {
+                background-color: var(--holiday);
+            }
+        }
+
+        ul {
+            li {
+                h2 {
+                    background-color: var(--holiday);
+                }
+
+                img {
+                    height: 30rem;
+                    width: 21rem;
+                }
+            }
+        }
+
+        .switchPage {
+
+            .divider {
+                background-color: var(--holiday);
+            }
+
+            button {
+
+                &::after {
+                    background-color: var(--holiday);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .peopleMain,
+    .planetsMain {
+        margin-block: 3rem;
+        padding: 1rem;
+
+        .listsContainer {
+            legend {
+                padding-inline: .5rem;
+            }
+
+            ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+
+                li {
+                    width: 48%;
+
+                    img {
+                        height: unset;
+                        width: 100%;
+                    }
+
+                    h2 {
+                        opacity: 1;
+                    }
+
+                    &:hover {
+                        img {
+                            filter: none;
+                            scale: unset;
+                        }
+                    }
+                }
+            }
+
+            .switchPage {
+                padding-inline: .5rem;
+            }
+        }
+    }
+}
