@@ -13,7 +13,8 @@
         padding: .8rem;
         border-radius: 1rem;
         transition: all 300ms ease;
-
+        font-family: starjedi;
+        text-transform: capitalize;
         &:focus-visible {
             border: .2rem solid var(--accent);
         }
@@ -33,7 +34,7 @@
         padding: .8rem;
         border-radius: 1rem;
         transition: all 300ms ease;
-
+        font-family: textfont;
         span {
             color: var(--accent);
         }
