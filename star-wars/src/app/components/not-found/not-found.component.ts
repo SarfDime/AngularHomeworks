@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
-import { HeaderService } from 'src/app/services/header.service'
+import { HeaderAndFooterService } from 'src/app/services/header-and-footer.service'
 
 @Component({
   selector: 'app-not-found',
   templateUrl: './not-found.component.html',
 })
 export class NotFoundComponent {
-  constructor(private router: Router, private headerService: HeaderService) { }
+  constructor(private router: Router, private headerService: HeaderAndFooterService) { }
 
   ngOnInit(): void {
-    this.headerService.toggleHeaderVisibility(false)
+    this.headerService.toggleVisibility(false)
   }
 
   navigateToHome() {
-    this.router.navigate(['/home'])
+    this.router.navigate(['/'])
   }
 }

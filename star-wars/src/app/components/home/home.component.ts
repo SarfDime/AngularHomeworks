@@ -44,11 +44,11 @@ export class HomeComponent implements OnInit {
     })
 
     if (!this.isLoadingPeople && this.currentPeople!.count === 0) {
-      this.store.dispatch(loadPeople({ page: 0 }))
+      this.store.dispatch(loadPeople({ page: 1 }))
     }
 
     if (!this.isLoadingPlanets && this.currentPlanets!.count === 0) {
-      this.store.dispatch(loadPlanets({ page: 0 }))
+      this.store.dispatch(loadPlanets({ page: 1 }))
     }
   }
 
@@ -59,10 +59,10 @@ export class HomeComponent implements OnInit {
   }
 
   onCharacterClick() {
-    this.router.navigate(['people'])
+    this.router.navigate(["people", 1]);
   }
 
   onPlanetClick() {
-    this.router.navigate(['planets'])
+    this.router.navigate(['planets', 1])
   }
 }

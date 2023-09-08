@@ -1,17 +1,7 @@
 .peopleMain,
 .planetsMain {
-    margin-block: 5rem;
     margin-inline: auto;
     padding: 2rem;
-
-    .loader {
-        text-align: center;
-
-        svg {
-            height: 3rem;
-            width: 3rem;
-        }
-    }
 
     .listsContainer {
         legend {
@@ -108,7 +98,7 @@
             li {
                 background-color: var(--tpPri2);
                 border: .2rem solid var(--tpPri);
-                border-radius: .3rem;
+                border-radius: .7rem;
                 box-shadow: rgba(0, 0, 0, 0.24) 0 .2rem .5rem;
 
                 user-select: none;
@@ -250,7 +240,6 @@
 @media (max-width: 1000px) {
     .peopleMain,
     .planetsMain {
-        margin-block: 3rem;
         padding: 1rem;
 
         .listsContainer {
@@ -287,6 +276,57 @@
 
             .switchPage {
                 padding-inline: .5rem;
+            }
+        }
+    }
+}
+
+.planetsMain {
+    .listsContainer {
+        legend {
+            &::after {
+                background-color: var(--warningRed);
+            }
+        }
+
+        ul {
+            li {
+                h2 {
+                    background-color: var(--warningRed);
+                }   
+                img {
+                    width: 400px;
+                    height: 400px;
+                }
+            }
+        }
+
+        .switchPage {
+            .divider{
+                background-color: var(--warningRed);
+            }
+
+            button {
+                &::after {
+                    background-color: var(--warningRed);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .planetsMain {
+        .listsContainer {
+            ul {
+                li {
+                    width: 48%;
+
+                    img {
+                        height: unset;
+                        width: 100%;
+                    }
+                }
             }
         }
     }

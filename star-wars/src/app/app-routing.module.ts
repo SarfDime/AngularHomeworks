@@ -9,10 +9,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component'
 import { HeaderGuard } from './guards/header.guard'
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent, canActivate: [HeaderGuard] },
-  { path: 'not-found', component: NotFoundComponent, canActivate: [HeaderGuard] },
-
+  { path: '', component: HomeComponent, canActivate: [HeaderGuard], pathMatch: 'full' },
+  
   { path: 'people', component: PeopleListComponent, canActivate: [HeaderGuard] },
   { path: 'person/:id', component: PeopleDetailsComponent, canActivate: [HeaderGuard] },
   { path: 'person', redirectTo: '/people' },
@@ -23,11 +21,12 @@ const routes: Routes = [
   { path: 'planet', redirectTo: '/planets' },
   { path: 'planets/:id', component: PlanetsListComponent, canActivate: [HeaderGuard] },
 
+  { path: 'not-found', component: NotFoundComponent, canActivate: [HeaderGuard] },
   { path: '**', redirectTo: '/not-found' },
 ]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

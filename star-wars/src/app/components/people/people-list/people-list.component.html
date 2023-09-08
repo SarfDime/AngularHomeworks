@@ -40,7 +40,7 @@
 
       <ul>
         <li *ngFor="let person of currentPeople" (click)="onPersonClick(person.name)">
-          <img src="../../../assets/people/{{ person.name.trim().toLowerCase() }}.jpg" alt="character">
+          <img src="../../../assets/people/{{ person.name.trim().toLowerCase() }}.jpg" onerror="this.src='../../../assets/people/backup.jpg'" alt="character">
           <h2>{{ person.name }}</h2>
         </li>
       </ul>

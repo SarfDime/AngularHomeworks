@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core'
 import { ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanActivate } from '@angular/router'
-import { HeaderService } from '../services/header.service'
+import { HeaderAndFooterService } from '../services/header-and-footer.service'
 
 @Injectable({
     providedIn: 'root'
 })
 export class HeaderGuard implements CanActivate {
-    constructor(private headerService: HeaderService) { }
+    constructor(private headerService: HeaderAndFooterService) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
         const path = state.url
 
         if (path === '/not-found') {
-            this.headerService.toggleHeaderVisibility(false)
+            this.headerService.toggleVisibility(false)
         } else {
-            this.headerService.toggleHeaderVisibility(true)
+            this.headerService.toggleVisibility(true)
         }
 
         return true

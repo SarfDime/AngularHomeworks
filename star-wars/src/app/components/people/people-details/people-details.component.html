@@ -1,29 +1,81 @@
-<div *ngIf="isLoading; else content">
-  ...Loading
-</div>
-
-<ng-template #content>
-  <div *ngIf="currentPerson; else noPerson">
-    <button (click)="navigateBack()">Back</button>
-    <h1>{{ currentPerson!.name }}</h1>
-    <h1>{{ currentPerson!.height }}</h1>
-    <h1>{{ currentPerson!.mass }}</h1>
-    <h1>{{ currentPerson!.gender }}</h1>
+<main class="peopleDetailsMain">
+  <div class="loader" *ngIf="isLoading; else content">
+    <svg viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2">
+        <path stroke-dasharray="2 4" stroke-dashoffset="6"
+          d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21">
+          <animate attributeName="stroke-dashoffset" dur="0.6s" repeatCount="indefinite" values="6;0" />
+        </path>
+        <path stroke-dasharray="30" stroke-dashoffset="30"
+          d="M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3">
+          <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.1s" dur="0.3s" values="30;0" />
+        </path>
+        <path stroke-dasharray="10" stroke-dashoffset="10" d="M12 8v7.5">
+          <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5s" dur="0.2s" values="10;0" />
+        </path>
+        <path stroke-dasharray="6" stroke-dashoffset="6" d="M12 15.5l3.5 -3.5M12 15.5l-3.5 -3.5">
+          <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.7s" dur="0.2s" values="6;0" />
+        </path>
+      </g>
+    </svg>
   </div>
-  
-  <ng-template #noPerson>
-    <div *ngIf="currentResults.length > 0; else noData">
-      <h2>People</h2>
+
+  <ng-template #content>
+    <legend>
+      <svg viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="6" r="4" />
+          <path stroke-linecap="round"
+            d="M18 9c1.657 0 3-1.12 3-2.5S19.657 4 18 4M6 9C4.343 9 3 7.88 3 6.5S4.343 4 6 4m11.197 11c.51.588.803 1.271.803 2c0 2.21-2.686 4-6 4s-6-1.79-6-4s2.686-4 6-4c.34 0 .675.019 1 .055M20 19c1.754-.385 3-1.359 3-2.5s-1.246-2.115-3-2.5M4 19c-1.754-.385-3-1.359-3-2.5s1.246-2.115 3-2.5" />
+        </g>
+      </svg>
+      <button class="goBackButton" (click)="navigateBack()">Go Back</button>
+    </legend>
+    
+    <div class="details" *ngIf="currentPerson; else noPerson">
+      <img src="../../../assets/people/{{ currentPerson.name.trim().toLowerCase() }}.jpg" onerror="this.src='../../../assets/people/backup.jpg'" alt="character">
       <ul>
-        <li *ngFor="let person of currentResults">
-          {{ person.name }}
-          <button (click)="onPersonClick(person.name)">Details</button>
+        <li>
+          <h1>{{ currentPerson.name }}</h1>
+        </li>
+        <li>
+          <p>Height:</p>
+          <h2>{{ currentPerson.height }}</h2>
+        </li>
+        <li>
+          <p>Mass:</p>
+          <h2>{{ currentPerson.mass }}</h2>
+        </li>
+        <li>
+          <p>Gender:</p>
+          <h2>{{ currentPerson.gender }}</h2>
+        </li>
+        <li>
+          <p>Hair Color:</p>
+          <h2>{{ currentPerson.hair_color }}</h2>
+        </li>
+        <li>
+          <p>Skin Color:</p>
+          <h2>{{ currentPerson.skin_color }}</h2>
+        </li>
+        <li>
+          <p>Eye Color:</p>
+          <h2>{{ currentPerson.eye_color }}</h2>
         </li>
       </ul>
     </div>
-    
-    <ng-template #noData>
-      <p>No data available.</p>
+
+    <ng-template #noPerson>
+        <ul class="listDetails" *ngIf="currentResults.length > 0; else noData">
+          <li *ngFor="let person of currentResults" (click)="onPersonClick(person.name)">
+            <img src="../../../assets/people/{{ person.name.trim().toLowerCase() }}.jpg" onerror="this.src='../../../assets/people/backup.jpg'" alt="character">
+            <h2>{{ person.name }}</h2>
+          </li>
+        </ul>
+
+      <ng-template #noData>
+        <p>No characters found</p>
+      </ng-template>
     </ng-template>
   </ng-template>
-</ng-template>
+</main>

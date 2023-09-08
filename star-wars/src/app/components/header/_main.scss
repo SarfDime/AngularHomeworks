@@ -2,6 +2,64 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 3rem;
+
+    .introPerm {
+        position: relative;
+        color: var(--secColor);
+        padding: .5rem;
+        transition: background-color .3s ease-in-out;
+        background-color: var(--tpPri2);
+        border: .3rem solid var(--tpPri);
+        border-radius: 1rem;
+        box-shadow: rgba(0, 0, 0, 0.24) 0 .2rem .5rem;
+
+        display: grid;
+        place-content: center;
+
+        svg {
+            width: 1.9rem;
+            height: 1.9rem;
+        }
+
+        &::before{
+            content: 'Toggle Intro';
+            position: absolute;
+            bottom: 0;
+            top: 0;
+            margin-block: auto;
+            left: -7rem;
+            width: max-content;
+            display: block;
+            z-index: 3;
+            opacity: 0;
+            scale: 0;
+            height: fit-content;
+
+            padding: .5rem;
+            text-align: center;
+            background-color: var(--tpPri2);
+            border: .3rem solid var(--tpPri);
+            border-radius: .5rem;
+            box-shadow: rgba(0, 0, 0, 0.24) 0 .2rem .5rem;
+        }
+
+        &:focus-visible {
+            border-color: var(--warningRed);
+        }
+
+        &:hover {
+            background-color: var(--tpPri3);
+            &::before{
+                scale: 1;
+                opacity: 1;
+            }
+        }
+
+        &:active {
+            background-color: var(--paleAccent);
+        }
+    }
 
     nav {
         padding: 1rem;
@@ -10,11 +68,11 @@ header {
             display: flex;
             background-color: var(--tpPri2);
             border: .5rem solid var(--tpPri);
-            border-radius: .3rem;
+            border-radius: 1rem;
             box-shadow: rgba(0, 0, 0, 0.24) 0 .2rem .5rem;
+            overflow: hidden;
 
             li {
-                border-radius: .2rem;
                 cursor: pointer;
                 user-select: none;
 
@@ -23,7 +81,8 @@ header {
                 &.active {
                     background-color: var(--paleAccent);
                     pointer-events: none;
-                    a{
+
+                    a {
                         transition: color .3s ease-in-out;
                         color: var(--priColor);
                     }
@@ -46,16 +105,42 @@ header {
                     }
                 }
 
-                &:focus-visible{
+                &:focus-visible {
                     border-color: var(--warningRed);
                 }
-    
+
                 &:hover {
                     background-color: var(--tpPri3);
                 }
-    
+
                 &:active {
                     background-color: var(--paleAccent);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    header {
+        .introPerm{
+            display: none;
+        }
+        nav {
+            padding: .7rem;
+
+            ul {
+                li {
+                    a {
+                        font-size: 1.15rem;
+                        gap: .5rem;
+                        padding: .7rem .9rem;
+
+                        svg {
+                            height: 1.9rem;
+                            width: 1.9rem;
+                        }
+                    }
                 }
             }
         }

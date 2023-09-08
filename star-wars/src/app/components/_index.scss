@@ -1,6 +1,8 @@
 @forward 'header';
 @forward 'home';
 @forward 'not-found';
-@forward 'people';
-@forward 'planets';
-// @forward 'background';
+@forward './lists';
+@forward './details';
+@forward 'background';
+@forward 'footer';
+@forward 'opening'

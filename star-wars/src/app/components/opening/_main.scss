@@ -1,0 +1,281 @@
+.opening-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+
+    overflow: hidden;
+
+    .title {
+        position: absolute;
+        opacity: 0;
+        color: var(--accent);
+        text-align: center;
+        font-size: 1.75vmax;
+        scale: 25;
+        display: table-caption;
+        word-spacing: 9999rem; // Breaks line after each word
+        line-height: 1.25vmax;
+        letter-spacing: -.05vmax;
+        transition: opacity 0.4s;
+        pointer-events: none;
+        user-select: none;
+        will-change: transform;
+        font-family: titleFont;
+
+        &.startedTitle{
+            opacity: 1;
+            animation: titleAnimation 7s linear forwards;
+        }
+    }
+
+    .farFarAway {
+        position: absolute;
+        width: 60%;
+        color: var(--accent);
+        pointer-events: none;
+        user-select: none;
+        will-change: transform;
+        perspective: 30vmax;
+
+        div {
+            top: 120vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 3vmax;
+            text-transform: uppercase;
+            margin-top: 100%;
+            font-family: textFont;
+
+            &.startedText{
+                animation: crawlAnimation 50s linear forwards;
+            }
+
+            :first-child {
+                margin-block: 1vmax;
+                text-align: center;
+            }
+
+            :nth-child(2) {
+                margin-bottom: 1vmax;
+                text-align: center;
+            }
+
+            h2{
+                font-size: 2vw;
+            }
+
+            p {
+                font-size: 1.5vw;
+                line-height: 2.5vmax;
+                font-weight: bold;
+                text-align: justify;
+                word-spacing: 0.2vmax;
+            }
+        }
+    }
+
+    .introButtons {
+        position: absolute;
+        color: var(--tpSec);
+        font-size: large;
+        touch-action: manipulation;
+        overflow: hidden;
+        transition: all .5s cubic-bezier(.19, 1, .22, 1);
+        font-family: textFont;
+
+        &::before {
+            content: '';
+            inset: -1vmax;
+            position: absolute;
+            filter: blur(.5vmax);
+            z-index: -1;
+        }
+
+        &:hover {
+            background-color: var(--priColor);
+            color: var(--secColor);
+        }
+
+        &:active {
+            background-color: var(--paleAccentThree);
+            color: var(--secColor);
+            scale: 0.9;
+        }
+    }
+
+    .skip {
+        z-index: 3;
+        right: 3vmax;
+        top: 3vmax;
+        padding: .5vmax;
+        border-radius: .3vmax;
+
+        &::before {
+            background-image: linear-gradient(-45deg,
+                    hsla(27, 100%, 24%, 0.9) 0%,
+                    hsla(29, 100%, 25%, 0.8) 3%,
+                    hsla(30, 100%, 26%, 0.8) 6%,
+                    hsla(31, 100%, 27%, 0.7) 9%,
+                    hsla(32, 100%, 29%, 0.6) 13%,
+                    hsl(34, 100%, 30%, 0.6) 16%,
+                    hsl(35, 100%, 31%, 0.6) 20%,
+                    hsla(36deg, 100%, 32%, 0.5),
+                    hsla(38deg, 100%, 34%, 0.5),
+                    hsla(39deg, 100%, 35%, 0.5),
+                    hsla(40deg, 100%, 36%, 0.5),
+                    hsla(42deg, 100%, 37%, 0.5),
+                    hsla(43deg, 100%, 39%, 0.6),
+                    hsla(44deg, 100%, 40%, 0.6),
+                    hsla(46deg, 100%, 41%, 0.6),
+                    hsla(47deg, 100%, 42%, 0.6),
+                    hsla(48deg, 100%, 44%, 0.7),
+                    hsla(50deg, 100%, 45%, 0.7),
+                    hsla(51deg, 100%, 46%, 0.7),
+                    hsla(52deg, 100%, 47%, 0.8),
+                    hsla(54deg, 100%, 49%, 0.8),
+                    hsla(55deg, 100%, 50%, 0.8));
+                    z-index: -1;
+        }
+    }
+
+    .start {
+        position: absolute;
+        padding: 2vmax;
+        border-radius: .5vmax;
+        top: 30%;
+        transition: all .5s cubic-bezier(.19, 1, .22, 1);
+
+        &::before {
+            background-image: linear-gradient(45deg,
+                    hsla(27, 100%, 24%, 0.9) 0%,
+                    hsla(29, 100%, 25%, 0.8) 3%,
+                    hsla(30, 100%, 26%, 0.8) 6%,
+                    hsla(31, 100%, 27%, 0.7) 9%,
+                    hsla(32, 100%, 29%, 0.6) 13%,
+                    hsl(34, 100%, 30%, 0.6) 16%,
+                    hsl(35, 100%, 31%, 0.6) 20%,
+                    hsla(36deg, 100%, 32%, 0.5),
+                    hsla(38deg, 100%, 34%, 0.5),
+                    hsla(39deg, 100%, 35%, 0.5),
+                    hsla(40deg, 100%, 36%, 0.5),
+                    hsla(42deg, 100%, 37%, 0.5),
+                    hsla(43deg, 100%, 39%, 0.6),
+                    hsla(44deg, 100%, 40%, 0.6),
+                    hsla(46deg, 100%, 41%, 0.6),
+                    hsla(47deg, 100%, 42%, 0.6),
+                    hsla(48deg, 100%, 44%, 0.7),
+                    hsla(50deg, 100%, 45%, 0.7),
+                    hsla(51deg, 100%, 46%, 0.7),
+                    hsla(52deg, 100%, 47%, 0.8),
+                    hsla(54deg, 100%, 49%, 0.8),
+                    hsla(55deg, 100%, 50%, 0.8));
+        }
+    }
+
+    .disabled {
+        opacity: 0;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    @keyframes titleAnimation {
+        0% {
+            scale: 25;
+        }
+
+        10% {
+            scale: 23;
+        }
+
+        50% {
+            scale: 20;
+        }
+
+        100% {
+            scale: 0;
+        }
+    }
+
+    @keyframes crawlAnimation {
+        from {
+            top: 150vh;
+            transform: rotateX(23deg);
+        }
+
+        to {
+            top: -200vh;
+            transform: rotateX(22deg) translateZ(-40vh);
+            margin-top: -50%;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .opening-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100vh;
+        width: 100%;
+        position: relative;
+
+        overflow: hidden;
+    
+        .farFarAway {
+            width: 100%;
+            perspective: 50vmax;
+            div {
+    top: 200vh;
+                h2{
+                    font-size: 2vh;
+                }
+    
+                p {
+                    font-size: 1.8vh;
+                    line-height: 3vmax;
+                    font-weight: bold;
+                    text-align: justify;
+                    word-spacing: unset;
+                    letter-spacing: .3vmax;
+                }
+            }
+        }
+    
+        @keyframes titleAnimation {
+            0% {
+                scale: 15;
+            }
+    
+            10% {
+                scale: 13;
+            }
+    
+            50% {
+                scale: 10;
+            }
+    
+            100% {
+                scale: 0;
+            }
+        }
+    
+        @keyframes crawlAnimation {
+            from {
+                top: 200vh;
+                transform: rotateX(5deg) translateZ(-3vw);
+            }
+    
+            to {
+                top: -200vh;
+                transform: rotateX(9deg) translateZ(-5vw);
+                margin-top: -50%;
+            }
+        }
+    }
+}

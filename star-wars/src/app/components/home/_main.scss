@@ -3,7 +3,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-block: 5rem;
     gap: 3rem;
 
     form {
@@ -16,7 +15,7 @@
             color: var(--secColor);
             background-color: var(--tpPri2);
             border: .3rem solid var(--tpPri);
-            border-radius: .3rem;
+            border-radius: .7rem;
             box-shadow: rgba(0, 0, 0, 0.24) 0 .2rem .5rem;
 
             transition: border-color .4s ease;
@@ -34,7 +33,7 @@
             color: var(--secColor);
             background-color: var(--tpPri2);
             border: .3rem solid var(--tpPri);
-            border-radius: .3rem;
+            border-radius: .7rem;
             box-shadow: rgba(0, 0, 0, 0.24) 0 .2rem .5rem;
             padding: 1rem;
 
@@ -47,7 +46,7 @@
             color: var(--secColor);
             background-color: var(--tpPri2);
             border: .3rem solid var(--tpPri);
-            border-radius: .3rem;
+            border-radius: .7rem;
             box-shadow: rgba(0, 0, 0, 0.24) 0 .2rem .5rem;
             padding: 1rem;
 
@@ -80,12 +79,12 @@
 
         background-color: var(--tpPri2);
 
-        border-radius: .5rem;
+        border-radius: .7rem;
         box-shadow: rgba(0, 0, 0, 0.24) 0 .2rem .5rem;
         padding: 1rem;
 
         div {
-            border-radius: .3rem;
+            border-radius: .7rem;
             background-color: var(--tpPri2);
             box-shadow: rgba(0, 0, 0, 0.24) 0 .2rem .5rem;
 
@@ -97,7 +96,6 @@
             img {
                 background-color: var(--tpPri2);
                 transition: filter .4s ease;
-                aspect-ratio: 16\9;
                 height: 35rem;
                 width: 25rem;
             }
@@ -125,10 +123,6 @@
             }
 
             &:last-child {
-                img {
-                    width: 30rem;
-                }
-
                 &:hover {
                     img {
                         filter: saturate(2) blur(.2rem);
@@ -149,7 +143,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-block: 3rem;
         gap: 3rem;
 
         form {
@@ -157,7 +150,7 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: .5rem;
-            padding-inline: 1.5rem;
+            padding-inline: 2.7rem;
 
             input {
                 width: 100%;
@@ -191,6 +184,7 @@
 
             div {
                 border: .3rem solid var(--tpPri);
+                width: 85%;
 
                 img {
                     height: unset;

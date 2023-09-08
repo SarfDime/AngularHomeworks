@@ -1,0 +1,11 @@
+<svg class="space-background">
+  <defs>
+    <symbol id="star-symbol">
+      <circle cx="5" cy="5" [attr.r]="circleRadius"></circle>
+    </symbol>
+  </defs>
+  <rect></rect>
+  <g class="stars-scale">
+    <use *ngFor="let star of stars" [attr.href]="'#star-symbol'" [attr.x]="star.x" [attr.y]="star.y" [ngClass]="star.className"></use>
+  </g>
+</svg>

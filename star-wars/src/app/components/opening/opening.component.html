@@ -1,0 +1,45 @@
+<div class="opening-container">
+  <button (click)="startOpening()" class="start introButtons" *ngIf="!readyToAnimate && !introIsDone">
+    <h1>CLICK TO START</h1>
+  </button>
+  <button (click)="stopOpening()" class="skip introButtons" *ngIf="readyToAnimate && !introIsDone">
+    skip intro
+  </button>
+  <h1 class="title" [class.startedTitle]="animationStarted">STAR WARS</h1>
+  <div class="farFarAway">
+    <div class="text" [class.startedText]="animationStarted">
+      <h2>EPISODE IV.V - THE REACT AWAKENS</h2>
+      <p>
+        A long time ago, in a galaxy not so far away
+      </p>
+      <p>
+        The digital realm was consumed by a fierce battle - the Framework Wars. 
+        Various coding clans, each wielding their own unique powers, clashed for dominance.
+        Amidst the chaos, React, Angular, and Vue emerged as the primary contenders, their coding styles as distinctive
+        as the planets in the cosmos. Each framework boasted its own loyal following and unique strengths.
+      </p>
+      <p>
+        As the Rebel Developers rose against the tyranny of outdated systems and tangled legacy code, they faced a
+        daunting choice. Should they align with the React Rebellion, masters of virtual DOM manipulation, the Angular
+        Jedi, with their powerful components and TypeScript mastery, or the Vue Guild, skilled in simplicity and
+        reactivity? Their decision would determine the fate of the digital universe.
+      </p>
+      <p>
+        With the Framework Wars raging on, the Rebel Developers embarked on their epic journey. Armed with their chosen
+        framework, they faced challenges that tested their coding mettle. From navigating the asteroid field of
+        cross-browser compatibility to battling the relentless bug armies and merge conflict beasts, each framework had
+        its strengths and weaknesses.
+      </p>
+      <p>
+        In the climactic showdown, the fate of the digital cosmos hung in the balance. The Rebel Developers, with React,
+        Angular, and Vue as their allies, stood united against the legacy code's oppressive grip. Together, they would
+        rewrite the codebase, ushering in a new era of responsive, dynamic, and scalable web applications.
+      </p>
+      <p>
+        Join us in the thrilling conclusion of the Framework Wars, as the Rebel Developers, with their chosen frameworks
+        by their side, embark on their last, audacious mission. In this defining battle, they code their destiny,
+        shaping the future of the digital galaxy.
+      </p>
+    </div>
+  </div>
+</div>

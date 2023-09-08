@@ -1,0 +1,94 @@
+@mixin randomAnimation($numberOfStars) {
+    $twinkleCount: ceil($numberOfStars * 0.9); 
+    $rotateLeftCount: ceil($numberOfStars * 0.15); 
+    $rotateRightCount: ceil($numberOfStars * 0.15); 
+
+    @for $i from 1 through $numberOfStars {
+        $animationName: "";
+        $animationDuration: "";
+
+        @if $i <=$twinkleCount {
+            $animationName: twinkling;
+            $animationDuration: 3s;
+        }
+
+        @else if $i <=$twinkleCount + $rotateLeftCount {
+            $animationName: rotateStarLeft;
+            $animationDuration: 550s;
+        }
+
+        @else if $i <=$twinkleCount + $rotateLeftCount + $rotateRightCount {
+            $animationName: rotateStarRight;
+            $animationDuration: 550s;
+        }
+
+        .star-#{$i} {
+            animation: #{$animationName} $animationDuration linear infinite;
+            animation-delay: random() * 15s;
+        }
+    }
+}
+
+// Could show warning in console, But that's because of formatting issues.
+
+.space-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    fill: transparent;
+    z-index: -3;
+
+    user-select: none;
+    pointer-events: none;
+
+    @include randomAnimation(160);
+
+    .star {
+        fill: #ffffff;
+    }
+
+    @keyframes rotateStarLeft {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        50% {
+            transform: rotate(360deg);
+        }
+
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+
+    @keyframes rotateStarRight {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        50% {
+            transform: rotate(-360deg);
+        }
+
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+
+    @keyframes twinkling {
+        0% {
+            opacity: 0.2;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0.2;
+        }
+    }
+}

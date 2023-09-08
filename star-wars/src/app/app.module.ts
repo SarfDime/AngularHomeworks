@@ -16,13 +16,17 @@ import { HttpClientModule } from '@angular/common/http'
 import { PeopleListComponent } from './components/people/people-list/people-list.component'
 import { PeopleDetailsComponent } from './components/people/people-details/people-details.component'
 import { PlanetsListComponent } from './components/planets/planets-list/planets-list.component'
-import { HeaderService } from './services/header.service'
+import { HeaderAndFooterService } from './services/header-and-footer.service'
 import { HeaderComponent } from './components/header/header.component'
 import { PersonEffects } from './store/person/person.effects'
 import { PlanetsDetailsComponent } from './components/planets/planets-details/planets-details.component'
 import { PlanetEffects } from './store/planet/planet.effects'
 import { FormsModule } from '@angular/forms'
 import { HomeComponent } from './components/home/home.component'
+import { FooterComponent } from './components/footer/footer.component'
+import { BackgroundComponent } from './components/background/background.component'
+import { OpeningComponent } from './components/opening/opening.component'
+import { OpeningService } from './services/opening.service'
 
 @NgModule({
   declarations: [
@@ -32,7 +36,10 @@ import { HomeComponent } from './components/home/home.component'
     PeopleListComponent,
     PlanetsListComponent,
     PeopleDetailsComponent,
-    PlanetsDetailsComponent
+    PlanetsDetailsComponent,
+    FooterComponent,
+    BackgroundComponent,
+    OpeningComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +49,7 @@ import { HomeComponent } from './components/home/home.component'
     HttpClientModule,
     FormsModule
   ],
-  providers: [PeopleApiService, PlanetsApiService, HeaderService],
+  providers: [PeopleApiService, PlanetsApiService, HeaderAndFooterService, OpeningService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
