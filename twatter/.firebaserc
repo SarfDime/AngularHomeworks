@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "twatter-e95d8": {
+      "hosting": {
+        "twatter": [
+          "twatter-e95d8"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "twatter-e95d8"
+  }
+}
